@@ -10,10 +10,10 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const bannerData = await client.fetch(`*[_type == "homebanner"][0]{
+        const bannerData = await client.fetch(`*[_type == "banner"][0]{
           bannerVideo,
           bannerLogo,
-          title,
+          bannerTitle,
           bannerContent,
           bannerButton,
           bannerText,
@@ -60,7 +60,7 @@ const HomePage = () => {
   const data = {
     bannerVideo: bannerData?.bannerVideo || placeholderData.bannerVideo,
     bannerLogo: bannerData?.bannerLogo || placeholderData.bannerLogo,
-    title: bannerData?.title || placeholderData.title,
+    bannerTitle: bannerData?.bannerTitle || placeholderData.bannerTitle,
     bannerContent: bannerData?.bannerContent || placeholderData.bannerContent,
     bannerButton: bannerData?.bannerButton || placeholderData.bannerButton,
     bannerText: bannerData?.bannerText || placeholderData.bannerText,
@@ -78,7 +78,7 @@ const HomePage = () => {
           </div>
 
           <div className="banner_title_text">
-            <h1>{data.title}</h1>
+            <h1>{data.bannerTitle}</h1>
           </div>
 
           <div className="banner_content_text">
